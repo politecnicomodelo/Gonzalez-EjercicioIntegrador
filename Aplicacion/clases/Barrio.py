@@ -1,4 +1,4 @@
 from .Zonas import Zonas
 
-class ProvinciaEstado(Zonas):
+class Barrio(Zonas):
     Poblacion = 0
