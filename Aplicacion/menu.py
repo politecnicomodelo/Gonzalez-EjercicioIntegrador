@@ -35,6 +35,7 @@ while(eleccion != 6):
                 if codigo == item.Codigo:
                     print("Nombre: " + item.Nombre)
                     print("Coordenadas W: " + item.Coordenada[0] + " S: " + item.Coordenada[1])
+                    print("Poblacion: ", item.calcularPoblacion())
                     print("Paises: ")
                     for newItem in item.Paises:
                         print("   " + newItem.Nombre, "   " , newItem.Codigo)
@@ -77,6 +78,7 @@ while(eleccion != 6):
                             print("Nombre: ", item2.Nombre)
                             print("Codigo: ", item2.Codigo)
                             print("Coordenadas W: ", item2.Coordenada[0], " S: ", item2.Coordenada[1])
+                            print("Poblacion: ", item2.calcularPoblacion())
                             print("Provincias/Estados: ")
                             for item3 in item2.ProvinciaEstados:
                                 print("   ", item3.Nombre, "   ", item3.Codigo)
@@ -126,6 +128,7 @@ while(eleccion != 6):
                                     print("Nombre: ", item3.Nombre)
                                     print("Codigo: ", item3.Codigo)
                                     print("Coordenadas W: ", item3.Coordenada[0], " S: ", item3.Coordenada[1])
+                                    print("Poblacion: ", item3.calcularPoblacion())
                                     print("Provincias/Estados: ")
                                     for item4 in item3.Ciudades:
                                         print("   ", item4.Nombre, "   ", item4.Codigo)
@@ -184,6 +187,7 @@ while(eleccion != 6):
                                             print("Nombre: ", item4.Nombre)
                                             print("Codigo: ", item4.Codigo)
                                             print("Coordenadas W: ", item4.Coordenada[0], " S: ", item4.Coordenada[1])
+                                            print("Poblacion: ", item4.calcularPoblacion())
                                             print("Provincias/Estados: ")
                                             for item5 in item4.Barrios:
                                                 print("   ", item5.Nombre, "   ", item5.Codigo)
@@ -229,7 +233,7 @@ while(eleccion != 6):
                                         if item4.Codigo == codigo:
                                             for item5 in item4.Barrios:
                                                 print("Nombre: ", item5.Nombre, " Codigo: ", item5.Codigo, " Coordenadas W: ",
-                                                      item5.Coordenada[0], " S: ", item5.Coordenada[1])
+                                                item5.Coordenada[0], " S: ", item5.Coordenada[1])
         if eleccion == 2:
             print("ingrese el codigo del barrio")
             codigo = int(input())
