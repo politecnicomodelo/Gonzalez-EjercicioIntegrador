@@ -40,7 +40,7 @@ while(eleccion != 6):
                         print("   " + newItem.Nombre, "   " , newItem.Codigo)
             a = input("precione enter para continuar")
         if eleccion == 3:
-            print("ingrese los sguientes datos")
+            print("ingrese los siguientes datos")
             nuevoContinente = Continente()
             nuevoContinente.Nombre = input("Nombre: ")
             nuevoContinente.Coordenada.append(input("Coordenada W: "))
@@ -113,7 +113,23 @@ while(eleccion != 6):
                             for item3 in item2.ProvinciaEstados:
                                 print("Nombre: ", item3.Nombre, " Codigo: ", item3.Codigo, " Coordenadas W: ", item3.Coordenada[0], " S: ", item3.Coordenada[1])
         if eleccion == 2:
-            a = 1
+            print("ingrese el codigo de la provincia/estado")
+            codigo = int(input())
+            n1 = int(codigo / 100)
+            n2 = int(n1 / 100)
+            for item in Continentes:
+                if item.Codigo == n2:
+                    for item2 in item.Paises:
+                        if item2.Codigo == n1:
+                            for item3 in item2.ProvinciaEstados:
+                                if item3.Codigo == codigo:
+                                    print("Nombre: ", item3.Nombre)
+                                    print("Codigo: ", item3.Codigo)
+                                    print("Coordenadas W: ", item3.Coordenada[0], " S: ", item3.Coordenada[1])
+                                    print("Provincias/Estados: ")
+                                    for item4 in item3.Ciudades:
+                                        print("   ", item4.Nombre, "   ", item4.Codigo)
+            a = input("presione enter para continuar")
         if eleccion == 3:
             print("ingrese el codigo del pais")
             codigo = int(input())
@@ -133,8 +149,131 @@ while(eleccion != 6):
                                 nuevaProvincia.Codigo = (item2.Codigo * 100) + 1
                             item2.ProvinciaEstados.append(nuevaProvincia)
     elif eleccion == 4:
-        a = 1
+        print("elija una opcion")
+        print("1: ver lista de ciudades")
+        print("2: ver datos completos de un ciudades")
+        print("3: ingresar una ciudades")
+        eleccion = int(input())
+        if eleccion == 1:
+            print("ingrese el codigo de la provincia/estado")
+            codigo = int(input())
+            n1 = int(codigo / 100)
+            n2 = int(n1/100)
+            for item in Continentes:
+                if item.Codigo == n2:
+                    for item2 in item.Paises:
+                        if item2.Codigo == n1:
+                            for item3 in item2.ProvinciaEstados:
+                                if item3.Codigo == codigo:
+                                    for item4 in item3.Ciudades:
+                                        print("Nombre: ", item4.Nombre, " Codigo: ", item4.Codigo, " Coordenadas W: ", item4.Coordenada[0], " S: ", item4.Coordenada[1])
+        if eleccion == 2:
+            print("ingrese el codigo de la ciudad")
+            codigo = int(input())
+            n1 = int(codigo / 100)
+            n2 = int(n1 / 100)
+            n3 = int(n2/100)
+            for item in Continentes:
+                if item.Codigo == n3:
+                    for item2 in item.Paises:
+                        if item2.Codigo == n2:
+                            for item3 in item2.ProvinciaEstados:
+                                if item3.Codigo == n1:
+                                    for item4 in item3.Ciudades:
+                                        if item4.Codigo == codigo:
+                                            print("Nombre: ", item4.Nombre)
+                                            print("Codigo: ", item4.Codigo)
+                                            print("Coordenadas W: ", item4.Coordenada[0], " S: ", item4.Coordenada[1])
+                                            print("Provincias/Estados: ")
+                                            for item5 in item4.Barrios:
+                                                print("   ", item5.Nombre, "   ", item5.Codigo)
+        if eleccion == 3:
+            print("ingrese el codigo de la provincia/estado")
+            codigo = int(input())
+            n1 = int(codigo / 100)
+            n2 = int(n1/100)
+            for item in Continentes:
+                if item.Codigo == n2:
+                    for item2 in item.Paises:
+                        if item2.Codigo == n1:
+                            for item3 in item2.ProvinciaEstados:
+                                if item3.Codigo == codigo:
+                                    nuevaCiudad = Ciudad()
+                                    nuevaCiudad.Nombre = input("Nombre: ")
+                                    nuevaCiudad.Coordenada.append(input("Coordenada W: "))
+                                    nuevaCiudad.Coordenada.append(input("Coordenada S: "))
+                                    if len(item3.Ciudades) != 0:
+                                        nuevaCiudad.Codigo = item3.Ciudades[len(item3.Ciudades) - 1] + 1
+                                    else:
+                                        nuevaCiudad.Codigo = (item3.Codigo * 100) + 1
+                                        item3.Ciudades.append(nuevaCiudad)
     elif eleccion == 5:
-        a = 1
+        print("elija una opcion")
+        print("1: ver lista de barrios")
+        print("2: ver datos completos de un barrios")
+        print("3: ingresar una barrios")
+        eleccion = int(input())
+        if eleccion == 1:
+            print("ingrese el codigo de la ciudad")
+            codigo = int(input())
+            n1 = int(codigo / 100)
+            n2 = int(n1 / 100)
+            n3 = int(n2 / 100)
+            for item in Continentes:
+                if item.Codigo == n3:
+                    for item2 in item.Paises:
+                        if item2.Codigo == n2:
+                            for item3 in item2.ProvinciaEstados:
+                                if item3.Codigo == n1:
+                                    for item4 in item3.Ciudades:
+                                        if item4.Codigo == codigo:
+                                            for item5 in item4.Barrios:
+                                                print("Nombre: ", item5.Nombre, " Codigo: ", item5.Codigo, " Coordenadas W: ",
+                                                      item5.Coordenada[0], " S: ", item5.Coordenada[1])
+        if eleccion == 2:
+            print("ingrese el codigo del barrio")
+            codigo = int(input())
+            n1 = int(codigo / 100)
+            n2 = int(n1 / 100)
+            n3 = int(n2 / 100)
+            n4 = int(n3 / 100)
+            for item in Continentes:
+                if item.Codigo == n4:
+                    for item2 in item.Paises:
+                        if item2.Codigo == n3:
+                            for item3 in item2.ProvinciaEstados:
+                                if item3.Codigo == n2:
+                                    for item4 in item3.Ciudades:
+                                        if item4.Codigo == n1:
+                                            for item5 in item4.Barrios:
+                                                if item5.Codigo == codigo:
+                                                    print("Nombre: ", item5.Nombre)
+                                                    print("Codigo: ", item5.Codigo)
+                                                    print("Coordenadas W: ", item5.Coordenada[0], " S: ", item5.Coordenada[1])
+                                                    print("Poblacion: ", item5.Poblacion)
+        if eleccion == 3:
+            print("ingrese el codigo de la ciudad")
+            codigo = int(input())
+            n1 = int(codigo / 100)
+            n2 = int(n1 / 100)
+            n3 = int(n2 / 100)
+            for item in Continentes:
+                if item.Codigo == n3:
+                    for item2 in item.Paises:
+                        if item2.Codigo == n2:
+                            for item3 in item.ProvinciaEstados:
+                                if item3.Codigo == n1:
+                                    for item4 in item3.Ciudades:
+                                        if item4.Codigo == codigo:
+                                            nuevoBarrio = Barrio()
+                                            nuevoBarrio.Nombre = input("Nombre: ")
+                                            nuevoBarrio.Coordenada.append(input("Coordenada W: "))
+                                            nuevoBarrio.Coordenada.append(input("Coordenada S: "))
+                                            nuevoBarrio.Poblacion = input("Poblacion: ")
+                                            if len(item4.Ciudades) != 0:
+                                                nuevoBarrio.Codigo = item4.Barrios[len(item4.Barrios) - 1] + 1
+                                            else:
+                                                nuevoBarrio.Codigo = (item4.Codigo * 100) + 1
+                                                item4.Barrios.append(nuevoBarrio)
     elif eleccion == 6:
         print("Adios")
