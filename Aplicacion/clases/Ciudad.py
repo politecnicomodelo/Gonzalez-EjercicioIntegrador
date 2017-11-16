@@ -9,3 +9,10 @@ class Ciudad(Zonas):
         for item in self.Barrios:
             poblacion = poblacion + item.Poblacion
         return poblacion
+
+    def eliminar(self,codigo):
+        i = 1
+        for item in self.Barrios:
+            if item.Codigo == codigo:
+                del self.Barrios[i]
+            i = i + 1

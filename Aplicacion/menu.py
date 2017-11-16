@@ -23,6 +23,7 @@ while(eleccion != 6):
         print("1: ver lista de continentes")
         print("2: ver datos completos de un continente")
         print("3: ingresar un continente")
+        print("4: eliminar continente")
         eleccion = int(input())
         if eleccion == 1:
             for item in Continentes:
@@ -51,7 +52,14 @@ while(eleccion != 6):
             else:
                 nuevoContinente.Codigo = 1
             Continentes.append(nuevoContinente)
-
+        if eleccion == 4:
+            print("ingrese el codigo del continente")
+            codigo = int(input(codigo))
+            i = 1
+            for item in self.Continentes:
+                if item.Codigo == codigo:
+                    del self.Continentes[i]
+                i = i + 1
     elif eleccion == 2:
         print("elija una opcion")
         print("1: ver lista de paises")
